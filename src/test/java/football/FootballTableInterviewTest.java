@@ -1,7 +1,5 @@
-package Football;
+package football;
 
-import Football.FootballTableInterview;
-import Football.TeamData;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -94,15 +92,21 @@ public class FootballTableInterviewTest {
     @Test
     public void shouldReturnSolutionToProblem() throws IOException {
         // given
-        String file = "src/Data/football_table.dat";
-        List<String> fileAsString = footballTableInterview.convertTableFileToString(file);
+        TeamData arsenal = new TeamData("Arsenal", 79, 36);
+        TeamData liverpool = new TeamData("Liverpool", 67, 30);
+        TeamData manchesterU = new TeamData("Manchester_U", 87, 45);
+        TeamData astonVilla = new TeamData("Aston_Villa", 46, 47);
+
+        List<TeamData> teamList = new ArrayList<>();
+        teamList.add(arsenal);
+        teamList.add(liverpool);
+        teamList.add(manchesterU);
+        teamList.add(astonVilla);
 
         // when
-        List<String[]> tableArray = footballTableInterview.splitTable(fileAsString);
-        List<TeamData> teamList = footballTableInterview.createTeamData(tableArray);
         String team = footballTableInterview.getTeamWithSmallestGoalDiff(teamList);
 
         // then
-        assertThat(team).isEqualTo("Leicester");
+        assertThat(team).isEqualTo("Aston_Villa");
     }
 }

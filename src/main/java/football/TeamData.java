@@ -1,4 +1,4 @@
-package Football;
+package football;
 
 public class TeamData {
 
@@ -25,6 +25,6 @@ public class TeamData {
     }
 
     public int getGoalDifference() {
-        return goalsFor - goalsAgainst;
+        return Math.abs(goalsFor - goalsAgainst);
     }
 }
